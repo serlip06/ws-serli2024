@@ -4,6 +4,7 @@ import (
 	"github.com/serlip06/ws-serli2024/controller"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/swagger" //swager handler
 )
 
 func Web(page *fiber.App) {
@@ -25,4 +26,6 @@ func Web(page *fiber.App) {
 	page.Put("/update/:id", controller.UpdateData)//update data 
 	page.Delete("/delete/:id", controller.DeletePresensiByID)//delete data 
 
+	//link untuk swager 
+	page.Get("/docs/*", swagger.HandlerDefault)
 }
