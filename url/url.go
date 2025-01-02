@@ -26,6 +26,9 @@ func Web(page *fiber.App) {
 	page.Put("/update/:id", controller.UpdateData)//update data 
 	page.Delete("/delete/:id", controller.DeletePresensiByID)//delete data 
 
+	// login 
+	page.Post("/Admin/login", controller.LoginAdmin)//login admin 
+
 	//link untuk swager 
 	page.Get("/docs/*", swagger.HandlerDefault)
 }
