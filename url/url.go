@@ -2,10 +2,11 @@ package url
 
 import (
 	"github.com/serlip06/ws-serli2024/controller"
-
+	//"net/http"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/swagger" //swager handler
 )
+
 
 func Web(page *fiber.App) {
 	// page.Post("/api/whatsauth/request", controller.PostWhatsAuthRequest)  //API from user whatsapp message from iteung gowa
@@ -28,6 +29,11 @@ func Web(page *fiber.App) {
 
 	// login 
 	page.Post("/Admin/login", controller.LoginAdmin)//login admin 
+	page.Post("/signup", controller.SignupHandler)
+	page.Post("/signin", controller.SigninHandler)
+	// page.Get("/pengguna/:username", controller.GetPenggunaByUsername)
+	//page.Post("/confirm-registration/:id", controller.ConfirmRegistrationHandler)
+
 
 	//link untuk swager 
 	page.Get("/docs/*", swagger.HandlerDefault)
